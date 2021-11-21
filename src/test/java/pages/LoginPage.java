@@ -2,6 +2,9 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+
+import java.util.NoSuchElementException;
 
 import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
@@ -17,6 +20,8 @@ public class LoginPage extends BasePage {
     private static final By REMIND = By.xpath("//*[contains(text(), 'Send yourself a password reminder')]");
     private static final By REMIND_DONE = By.xpath("//*[contains(text(), 'Password hint sent')]");
     public static final By MANDATORY_ERROR = By.xpath("//*[contains(text(), 'Mandatory field')]");
+    public static final By LOGOUT_LINK = By.cssSelector("button[ng-click='logout($event)']");
+    public static final By LOGOUT_LINK_POPUP = By.xpath("//div[text()='Log out']");
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -53,10 +58,27 @@ public class LoginPage extends BasePage {
         assertTrue("The registration link doesn't work, you have to do something",
                 driver.findElement(REMIND).isDisplayed());
     }
+
     public void reminderPass(String user) {
         driver.findElement(REMIND_LINK).click();
         driver.findElement(LOGIN_REMIND).sendKeys(user);
         driver.findElement(LOGIN_REMIND).submit();
         assertEquals("you need to enter the correct login", "Password hint sent",
                 driver.findElement(REMIND_DONE).getText());
-}}
+    }
+
+    public void logout() {
+
+        try {
+            driver.findElement(LOGOUT_LINK).click();
+            assertTrue("logout doesn't work",
+                    driver.findElement(LOGIN).isDisplayed());
+
+        } catch (NoSuchElementException exception) {
+            driver.findElement(LOGOUT_LINK_POPUP).click();
+            assertTrue("logout from POP-up doesn't work",
+                    driver.findElement(LOGIN).isDisplayed());
+        }
+    }
+
+}
