@@ -31,7 +31,7 @@ public class EntriesPage extends BasePage {
         super(driver);
     }
 
-    public void newEntries(String newEntryText) {
+    public EntriesPage newEntries(String newEntryText) {
 
         driver.findElement(CREATE_ENTRIES_BUTTON).click();
         //driver.findElement(EDITABLE_FIELD).sendKeys(newEntryText);
@@ -41,9 +41,10 @@ public class EntriesPage extends BasePage {
         driver.findElement(BACK_TO_ENTRIES_PAGE_BUTTON).click();
         assertEquals("New entry has not been added", newEntryText,
                 driver.findElement(NEW_ENTRY).getText());
+        return new EntriesPage(driver);
     }
 
-    public void newEntry(String newEntryText) {
+    public EntriesPage newEntry(String newEntryText) {
 
         driver.findElement(CREATE_ENTRIES_BUTTON).click();
         //driver.findElement(EDITABLE_FIELD).sendKeys(newEntryText);
@@ -51,23 +52,27 @@ public class EntriesPage extends BasePage {
         action.click(driver.findElement(EDITABLE_FIELD)).sendKeys(newEntryText).perform();
         driver.findElement(SAVE_NEW_ENTRY_BUTTON).click();
         driver.findElement(BACK_TO_ENTRIES_PAGE_BUTTON).click();
+        return new EntriesPage(driver);
     }
 
-    public void deleteLastEntry() {
+    public EntriesPage deleteLastEntry() {
         driver.findElement(SELECT_LAST_CHECKBOX).click();
         driver.findElement(DELETE_ENTRIES_BUTTON).click();
         driver.switchTo().alert().accept();
+        return new EntriesPage(driver);
     }
 
-    public void deleteAllEntries() {
+    public EntriesPage deleteAllEntries() {
         driver.findElement(SELECT_ALL_CHECKBOXES).click();
         driver.findElement(DELETE_ENTRIES_BUTTON).click();
         driver.switchTo().alert().accept();
+        return new EntriesPage(driver);
     }
 
-    public void searchEntry(String entryText) {
+    public EntriesPage searchEntry(String entryText) {
         driver.findElement(SEARCH_FIELD).sendKeys(entryText);
         driver.findElement(SEARCH_FIELD).submit();
+        return new EntriesPage(driver);
     }
 
 }

@@ -34,23 +34,26 @@ public class SettingsPage extends BasePage {
         super(driver);
     }
 
-    public void setLink() {
+    public SettingsPage setLink() {
         driver.findElement(SETTINGS_LINK).click();
         assertTrue("Setting link doesn't work",
                 driver.findElement(EN).isDisplayed());
+        return new SettingsPage(driver);
     }
 
-    public void openSettings() {
+    public SettingsPage openSettings() {
         driver.get(SETTINGS_PAGE_URL);
+        return new SettingsPage(driver);
     }
 
-    public void openSettingsByButton() {
+    public SettingsPage openSettingsByButton() {
         driver.findElement(SETTINGS_LINK).click();
+        return new SettingsPage(driver);
 
     }
 
 
-    public void setLangDE() {
+    public SettingsPage setLangDE() {
         Select select = new Select(driver.findElement(DROPDOWN));
         select.selectByIndex(0);
         driver.findElement(DROPDOWN).submit();
@@ -59,17 +62,19 @@ public class SettingsPage extends BasePage {
         Select selectDef = new Select(driver.findElement(DROPDOWN));
         selectDef.selectByIndex(1);
         driver.findElement(DROPDOWN).submit();
+        return new SettingsPage(driver);
     }
 
-    public void setLangEN() {
+    public SettingsPage setLangEN() {
         Select select = new Select(driver.findElement(DROPDOWN));
         select.selectByIndex(1);
         driver.findElement(DROPDOWN).submit();
         assertEquals("Set Lang doesn't work", "Language selection",
                 driver.findElement(EN).getText());
+        return new SettingsPage(driver);
     }
 
-    public void setLangFR() {
+    public SettingsPage setLangFR() {
         Select select = new Select(driver.findElement(DROPDOWN));
         select.selectByIndex(2);
         driver.findElement(DROPDOWN).submit();
@@ -78,9 +83,10 @@ public class SettingsPage extends BasePage {
         Select selectDef = new Select(driver.findElement(DROPDOWN));
         selectDef.selectByIndex(1);
         driver.findElement(DROPDOWN).submit();
+        return new SettingsPage(driver);
     }
 
-    public void setLangPT() {
+    public SettingsPage setLangPT() {
         Select select = new Select(driver.findElement(DROPDOWN));
         select.selectByIndex(3);
         driver.findElement(DROPDOWN).submit();
@@ -89,16 +95,18 @@ public class SettingsPage extends BasePage {
         Select selectDef = new Select(driver.findElement(DROPDOWN));
         selectDef.selectByIndex(1);
         driver.findElement(DROPDOWN).submit();
+        return new SettingsPage(driver);
     }
 
-    public void setLangDefault() {
+    public SettingsPage setLangDefault() {
         Select select = new Select(driver.findElement(DROPDOWN));
         select.selectByIndex(1);
         driver.findElement(DROPDOWN).submit();
+        return new SettingsPage(driver);
 
     }
 
-    public void setMenuPass(String pass) {
+    public SettingsPage setMenuPass(String pass) {
         driver.findElement(MENU_PASS).click();
         driver.findElement(OLD_PASS).sendKeys(pass);
         driver.findElement(NEW_PASS).sendKeys(pass);
@@ -107,15 +115,16 @@ public class SettingsPage extends BasePage {
         driver.findElement(NEW_HINT).submit();
         assertEquals("Pass doesn't change, something wrong", "Your password has been changed successfully",
                 driver.findElement(PASS_CHANGED).getText());
+        return new SettingsPage(driver);
     }
 
-    public void setInactivityTimeout() {
+    public SettingsPage setInactivityTimeout() {
         driver.findElement(MENU_TIMEOUT).click();
         Select select = new Select(driver.findElement(DROPDOWN_TIMEOUT));
         select.selectByIndex(0);
         driver.findElement(DROPDOWN_TIMEOUT).submit();
         assertEquals ("Timeout doesn't change, something wrong", "Your settings have been saved successfully",
                 driver.findElement(TIMEOUT_CHANGED).getText());
-
+        return new SettingsPage(driver);
     }
 }

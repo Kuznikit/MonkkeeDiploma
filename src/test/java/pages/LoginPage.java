@@ -28,55 +28,61 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    public void openLoginPage() {
+    public LoginPage openLoginPage() {
         driver.get(LOGIN_PAGE_URL);
+        return new LoginPage(driver);
     }
 
-    public void login(String user, String pass) {
-  //      try {
-            driver.findElement(LOGIN).sendKeys(user);
-            driver.findElement(PASS).sendKeys(pass);
-            driver.findElement(PASS).submit();
-            popupLoginSubmit();
-   //             } catch (Exception e) {
-  //          popupLoginSubmit();
-  //          wait.until(ExpectedConditions.elementToBeClickable(POPUP_SUBMIT));
- //           driver.findElement(POPUP_SUBMIT).click();
- //       }
-
+    public LoginPage login(String user, String pass) {
+        //      try {
+        driver.findElement(LOGIN).sendKeys(user);
+        driver.findElement(PASS).sendKeys(pass);
+        driver.findElement(PASS).submit();
+        popupLoginSubmit();
+        //             } catch (Exception e) {
+        //          popupLoginSubmit();
+        //          wait.until(ExpectedConditions.elementToBeClickable(POPUP_SUBMIT));
+        //           driver.findElement(POPUP_SUBMIT).click();
+        //       }
+        return new LoginPage(driver);
 
     }
 
-    public void checkPageOpened() {
+    public LoginPage checkPageOpened() {
         assertTrue("Wrong username or password, you have to do something",
                 driver.findElement(CREATE_ENTRY).isDisplayed());
+        return new LoginPage(driver);
     }
 
-    public void checkMandatoryField() {
+    public LoginPage checkMandatoryField() {
         assertEquals("Mandatory field", "Mandatory field",
                 driver.findElement(MANDATORY_ERROR).getText());
+        return new LoginPage(driver);
     }
 
-    public void openRegisterPage() {
+    public LoginPage openRegisterPage() {
         driver.findElement(REGISTER_LINK).click();
         assertTrue("The registration link doesn't work, you have to do something",
                 driver.findElement(REGISTRATION).isDisplayed());
+        return new LoginPage(driver);
     }
-    public void openReminderPage() {
+    public LoginPage openReminderPage() {
         driver.findElement(REMIND_LINK).click();
         assertTrue("The remind link doesn't work, you have to do something",
                 driver.findElement(REMIND).isDisplayed());
+        return new LoginPage(driver);
     }
 
-    public void reminderPass(String user) {
+    public LoginPage reminderPass(String user) {
         driver.findElement(REMIND_LINK).click();
         driver.findElement(LOGIN_REMIND).sendKeys(user);
         driver.findElement(LOGIN_REMIND).submit();
         assertEquals("you need to enter the correct login", "Password hint sent",
                 driver.findElement(REMIND_DONE).getText());
+        return new LoginPage(driver);
     }
 
-    public void logout() {
+    public LoginPage logout() {
 
   //      try {
             driver.findElement(LOGOUT_LINK).click();
@@ -88,6 +94,8 @@ public class LoginPage extends BasePage {
      //       assertTrue("logout from POP-up doesn't work",
      //               driver.findElement(REMIND_LINK).isDisplayed());
     //    }
+        return new LoginPage(driver);
     }
+
 
 }
