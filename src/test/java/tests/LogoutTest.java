@@ -1,7 +1,7 @@
 package tests;
 
 import org.testng.annotations.Test;
-import tests.retry.Retry;
+import utils.Retry;
 
 public class LogoutTest extends BaseTest{
     @Test(retryAnalyzer = Retry.class, description = "")

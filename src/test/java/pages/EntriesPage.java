@@ -2,15 +2,8 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.testng.Assert;
 
-
-import java.util.List;
-import java.util.concurrent.TimeoutException;
 
 import static org.testng.AssertJUnit.assertEquals;
 
@@ -55,18 +48,18 @@ public class EntriesPage extends BasePage {
         return new EntriesPage(driver);
     }
 
-    public EntriesPage deleteLastEntry() {
+    public void deleteLastEntry() {
         driver.findElement(SELECT_LAST_CHECKBOX).click();
         driver.findElement(DELETE_ENTRIES_BUTTON).click();
         driver.switchTo().alert().accept();
-        return new EntriesPage(driver);
+        new EntriesPage(driver);
     }
 
-    public EntriesPage deleteAllEntries() {
+    public void deleteAllEntries() {
         driver.findElement(SELECT_ALL_CHECKBOXES).click();
         driver.findElement(DELETE_ENTRIES_BUTTON).click();
         driver.switchTo().alert().accept();
-        return new EntriesPage(driver);
+        new EntriesPage(driver);
     }
 
     public EntriesPage searchEntry(String entryText) {

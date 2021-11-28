@@ -1,11 +1,8 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 
 import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
@@ -34,11 +31,11 @@ public class SettingsPage extends BasePage {
         super(driver);
     }
 
-    public SettingsPage setLink() {
+    public void setLink() {
         driver.findElement(SETTINGS_LINK).click();
         assertTrue("Setting link doesn't work",
                 driver.findElement(EN).isDisplayed());
-        return new SettingsPage(driver);
+        new SettingsPage(driver);
     }
 
     public SettingsPage openSettings() {
@@ -49,11 +46,9 @@ public class SettingsPage extends BasePage {
     public SettingsPage openSettingsByButton() {
         driver.findElement(SETTINGS_LINK).click();
         return new SettingsPage(driver);
-
     }
 
-
-    public SettingsPage setLangDE() {
+    public void setLangDE() {
         Select select = new Select(driver.findElement(DROPDOWN));
         select.selectByIndex(0);
         driver.findElement(DROPDOWN).submit();
@@ -62,19 +57,19 @@ public class SettingsPage extends BasePage {
         Select selectDef = new Select(driver.findElement(DROPDOWN));
         selectDef.selectByIndex(1);
         driver.findElement(DROPDOWN).submit();
-        return new SettingsPage(driver);
+        new SettingsPage(driver);
     }
 
-    public SettingsPage setLangEN() {
+    public void setLangEN() {
         Select select = new Select(driver.findElement(DROPDOWN));
         select.selectByIndex(1);
         driver.findElement(DROPDOWN).submit();
         assertEquals("Set Lang doesn't work", "Language selection",
                 driver.findElement(EN).getText());
-        return new SettingsPage(driver);
+        new SettingsPage(driver);
     }
 
-    public SettingsPage setLangFR() {
+    public void setLangFR() {
         Select select = new Select(driver.findElement(DROPDOWN));
         select.selectByIndex(2);
         driver.findElement(DROPDOWN).submit();
@@ -83,10 +78,10 @@ public class SettingsPage extends BasePage {
         Select selectDef = new Select(driver.findElement(DROPDOWN));
         selectDef.selectByIndex(1);
         driver.findElement(DROPDOWN).submit();
-        return new SettingsPage(driver);
+        new SettingsPage(driver);
     }
 
-    public SettingsPage setLangPT() {
+    public void setLangPT() {
         Select select = new Select(driver.findElement(DROPDOWN));
         select.selectByIndex(3);
         driver.findElement(DROPDOWN).submit();
@@ -95,7 +90,7 @@ public class SettingsPage extends BasePage {
         Select selectDef = new Select(driver.findElement(DROPDOWN));
         selectDef.selectByIndex(1);
         driver.findElement(DROPDOWN).submit();
-        return new SettingsPage(driver);
+        new SettingsPage(driver);
     }
 
     public SettingsPage setLangDefault() {
@@ -106,7 +101,7 @@ public class SettingsPage extends BasePage {
 
     }
 
-    public SettingsPage setMenuPass(String pass) {
+    public void setMenuPass(String pass) {
         driver.findElement(MENU_PASS).click();
         driver.findElement(OLD_PASS).sendKeys(pass);
         driver.findElement(NEW_PASS).sendKeys(pass);
@@ -115,16 +110,16 @@ public class SettingsPage extends BasePage {
         driver.findElement(NEW_HINT).submit();
         assertEquals("Pass doesn't change, something wrong", "Your password has been changed successfully",
                 driver.findElement(PASS_CHANGED).getText());
-        return new SettingsPage(driver);
+        new SettingsPage(driver);
     }
 
-    public SettingsPage setInactivityTimeout() {
+    public void setInactivityTimeout() {
         driver.findElement(MENU_TIMEOUT).click();
         Select select = new Select(driver.findElement(DROPDOWN_TIMEOUT));
         select.selectByIndex(0);
         driver.findElement(DROPDOWN_TIMEOUT).submit();
-        assertEquals ("Timeout doesn't change, something wrong", "Your settings have been saved successfully",
+        assertEquals("Timeout doesn't change, something wrong", "Your settings have been saved successfully",
                 driver.findElement(TIMEOUT_CHANGED).getText());
-        return new SettingsPage(driver);
+        new SettingsPage(driver);
     }
 }
