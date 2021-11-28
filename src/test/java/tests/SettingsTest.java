@@ -1,10 +1,11 @@
 package tests;
 
 import org.testng.annotations.Test;
+import utils.Retry;
 
 
 public class SettingsTest extends BaseTest {
-    @Test(description = "")
+    @Test(description = "", retryAnalyzer = Retry.class)
     public void checkSettingsPage() {
         loginPage
                 .openLoginPage()
@@ -13,7 +14,7 @@ public class SettingsTest extends BaseTest {
                 .setLink();
     }
 
-    @Test(description = "")
+    @Test(description = "", retryAnalyzer = Retry.class)
     public void setLangDE() {
         loginPage
                 .openLoginPage()
@@ -23,7 +24,7 @@ public class SettingsTest extends BaseTest {
                 .setLangDE();
     }
 
-    @Test(description = "")
+    @Test(description = "", retryAnalyzer = Retry.class)
     public void setLangEN() {
         loginPage
                 .openLoginPage()
@@ -33,7 +34,7 @@ public class SettingsTest extends BaseTest {
                 .setLangEN();
     }
 
-    @Test(description = "")
+    @Test(description = "", retryAnalyzer = Retry.class)
     public void setLangFR() {
         loginPage
                 .openLoginPage()
@@ -42,7 +43,7 @@ public class SettingsTest extends BaseTest {
                 .setLangFR();
     }
 
-    @Test(description = "")
+    @Test(description = "", retryAnalyzer = Retry.class)
     public void setLangPT() {
         loginPage
                 .openLoginPage()
@@ -52,7 +53,7 @@ public class SettingsTest extends BaseTest {
                 .setLangPT();
     }
 
-    @Test(description = "")
+    @Test(description = "", retryAnalyzer = Retry.class)
     public void checkSetNewPass() {
         loginPage
                 .openLoginPage()
@@ -61,7 +62,7 @@ public class SettingsTest extends BaseTest {
                 .openSettingsByButton()
                 .setMenuPass(pass);
     }
-    @Test(description = "")
+    @Test(description = "", retryAnalyzer = Retry.class)
     public void checkSetInactivityTimeout() {
         loginPage
                 .openLoginPage()

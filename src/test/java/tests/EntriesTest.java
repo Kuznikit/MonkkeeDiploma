@@ -1,9 +1,10 @@
 package tests;
 import org.testng.annotations.Test;
+import utils.Retry;
 
 public class EntriesTest extends BaseTest {
 
-    @Test(description = "")
+    @Test(description = "", retryAnalyzer = Retry.class)
     public void createNewEntry() {
         loginPage
                 .openLoginPage()
@@ -12,7 +13,7 @@ public class EntriesTest extends BaseTest {
                 .newEntries("My first entry");
     }
 
-    @Test(description = "")
+    @Test(description = "", retryAnalyzer = Retry.class)
     public void deleteLastEntry() {
         loginPage
                 .openLoginPage()
@@ -22,7 +23,7 @@ public class EntriesTest extends BaseTest {
                 .deleteLastEntry();
     }
 
-    @Test(description = "")
+    @Test(description = "", retryAnalyzer = Retry.class)
     public void deleteAllEntries() {
         loginPage
                 .openLoginPage()
@@ -33,7 +34,7 @@ public class EntriesTest extends BaseTest {
                 .deleteAllEntries();
     }
 
-    @Test(description = "")
+    @Test(description = "", retryAnalyzer = Retry.class)
     public void searchEntry () {
         loginPage.openLoginPage()
                 .login(user, pass);
