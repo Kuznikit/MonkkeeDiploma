@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test suite" parallel="tests" thread-count="2">
+    <test name="EntriesTest">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.EntriesTest"/>
+        </classes>
+    </test>
+
+    <test name="LoginTest">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.LoginTest"/>
+        </classes>
+    </test>
+
+    <test name="LogoutTest">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.LogoutTest"/>
+        </classes>
+    </test>
+
+    <test name="SettingsTest">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.SettingsTest"/>
+        </classes>
+    </test>
+</suite>
