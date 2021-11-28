@@ -26,6 +26,7 @@ public class EntriesPage extends BasePage {
     public static final By SELECT_ALL_CHECKBOXES = By.cssSelector("input[ng-model='model.allChecked']");
     public static final By SEARCH_FIELD = By.id("appendedInputButton");
 
+
     public EntriesPage(WebDriver driver) {
         super(driver);
     }
@@ -67,8 +68,6 @@ public class EntriesPage extends BasePage {
     public void searchEntry(String entryText) {
         driver.findElement(SEARCH_FIELD).sendKeys(entryText);
         driver.findElement(SEARCH_FIELD).submit();
-
-
     }
 
 }

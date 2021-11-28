@@ -2,7 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.NoSuchElementException;
 
@@ -22,7 +22,8 @@ public class LoginPage extends BasePage {
     public static final By MANDATORY_ERROR = By.xpath("//*[contains(text(), 'Mandatory field')]");
     public static final By LOGOUT_LINK = By.cssSelector("button[ng-click='logout($event)']");
     public static final By LOGOUT_LINK_POPUP = By.xpath("//div[text()='Log out']");
-
+    public static final By LOGIN_BUTTON = By.cssSelector(".btn-text-content");
+    public static final By POPUP_WINDOW =  By.cssSelector(".modal-content");
     public LoginPage(WebDriver driver) {
         super(driver);
     }
@@ -32,9 +33,17 @@ public class LoginPage extends BasePage {
     }
 
     public void login(String user, String pass) {
-        driver.findElement(LOGIN).sendKeys(user);
-        driver.findElement(PASS).sendKeys(pass);
-        driver.findElement(PASS).submit();
+  //      try {
+            driver.findElement(LOGIN).sendKeys(user);
+            driver.findElement(PASS).sendKeys(pass);
+            driver.findElement(PASS).submit();
+            popupLoginSubmit();
+   //             } catch (Exception e) {
+  //          popupLoginSubmit();
+  //          wait.until(ExpectedConditions.elementToBeClickable(POPUP_SUBMIT));
+ //           driver.findElement(POPUP_SUBMIT).click();
+ //       }
+
 
     }
 
@@ -55,7 +64,7 @@ public class LoginPage extends BasePage {
     }
     public void openReminderPage() {
         driver.findElement(REMIND_LINK).click();
-        assertTrue("The registration link doesn't work, you have to do something",
+        assertTrue("The remind link doesn't work, you have to do something",
                 driver.findElement(REMIND).isDisplayed());
     }
 
@@ -69,16 +78,16 @@ public class LoginPage extends BasePage {
 
     public void logout() {
 
-        try {
+  //      try {
             driver.findElement(LOGOUT_LINK).click();
-            assertTrue("logout doesn't work",
-                    driver.findElement(LOGIN).isDisplayed());
-
-        } catch (NoSuchElementException exception) {
-            driver.findElement(LOGOUT_LINK_POPUP).click();
-            assertTrue("logout from POP-up doesn't work",
-                    driver.findElement(LOGIN).isDisplayed());
-        }
+            assertEquals("logout doesn't work","Send password reminder",
+                    driver.findElement(REMIND_LINK).getText());
+  //          popupLogoutSubmit();
+  //      } catch (NoSuchElementException exception) {
+   //         driver.findElement(LOGOUT_LINK_POPUP).click();
+     //       assertTrue("logout from POP-up doesn't work",
+     //               driver.findElement(REMIND_LINK).isDisplayed());
+    //    }
     }
 
 }

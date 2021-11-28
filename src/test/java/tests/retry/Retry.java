@@ -1,4 +1,4 @@
-package tests.base;
+package tests.retry;
 
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;

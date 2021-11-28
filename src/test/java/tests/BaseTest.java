@@ -11,6 +11,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import pages.EntriesPage;
 import pages.LoginPage;
+import pages.SettingsPage;
 
 import java.util.concurrent.TimeUnit;
 
@@ -19,6 +20,7 @@ public class BaseTest {
     WebDriver driver;
     LoginPage loginPage;
     EntriesPage entriesPage;
+    SettingsPage settingsPage;
     String user = "Kuznikit@gmail.com";
     String pass = "Qazxcv123";
 
@@ -42,6 +44,7 @@ public class BaseTest {
         //  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         loginPage = new LoginPage(driver);
         entriesPage = new EntriesPage(driver);
+        settingsPage = new SettingsPage(driver);
     }
 
     @AfterMethod(alwaysRun = true)
