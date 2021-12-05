@@ -30,6 +30,8 @@ public class BaseTest {
 
     @BeforeMethod
     public void setup(@Optional("chrome") String browser, ITestContext context) {
+        user = System.getenv().getOrDefault("MONKKEE_USER", PropertyReader.getProperty("monkkee.user"));
+        pass = System.getenv().getOrDefault("MONKKEE_PASS", PropertyReader.getProperty("monkkee.pass"));
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         //options.addArguments("--headless");
