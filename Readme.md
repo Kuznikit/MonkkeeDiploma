@@ -2,9 +2,6 @@
 <h1 align="center">Monkkee Diploma</h1>
 <p align="center"><em><a title="monkkee" href="https://my.monkkee.com/#/"><span style="color: #ff6600;"><strong>Monkkee</strong></span></a>&nbsp;The safest place for your thoughts. Keep a private and free online diary</em></p>
 
-[Monkkee](https://my.monkkee.com/#/)
----
-
 <h2 align="left">Overview:</h2>
 At monkkee you can write private entries of all kinds, safely encrypted and protected from prying eyes. The secure online diary serves as a personal diary or journal, virtual notebook or storage location for spontaneous ideas and thoughts. In order to use monkkee all you need is an Internet connection. You can access your data from anywhere on the web.
 
