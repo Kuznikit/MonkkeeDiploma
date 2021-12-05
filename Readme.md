@@ -8,10 +8,31 @@
 
 >At monkkee you can write private entries of all kinds, safely encrypted and protected from prying eyes. The secure online diary serves as a personal diary or journal, virtual notebook or storage location for spontaneous ideas and thoughts. In order to use monkkee all you need is an Internet connection. You can access your data from anywhere on the web.
 
-####Clone the repository into your projects directory:
+###Clone the repository into your projects directory:
+
 ```
 https://github.com/Kuznikit/MonkkeeDiploma.git
 ```
+
+### Installation:
+>IDE: IntelliJ
+Programming Language: JAVA (v.11.0)
+Proect Type: Maven
+
+## Frameworks:
+Selenium
+TestNG
+lombok
+
+## Design Patterns used:
+POM (Page Object Module)
+
+# Logs
+*log4j2
+
+# Reporting:
+Allure reporting system
+### Global Usage
 
 
 <h3>Installation:</h3>
@@ -29,7 +50,7 @@ https://github.com/Kuznikit/MonkkeeDiploma.git
 
 
 ### Installation:
-IDE: IntelliJ
+>IDE: IntelliJ
 Programming Language: JAVA (v.11.0)
 Proect Type: Maven
 ## Frameworks:
@@ -43,6 +64,26 @@ POM (Page Object Module)
 # Reporting:
 Allure reporting system
 ### Global Usage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Global Registeration via Vue.use() method.
 
