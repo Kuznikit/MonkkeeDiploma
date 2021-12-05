@@ -5,6 +5,10 @@
 <h3 dir="auto" align="left">Overview:</h3>
 <p>&nbsp; &nbsp; &nbsp; &nbsp;At monkkee you can write private entries of all kinds, safely encrypted and protected from prying eyes. The secure online diary serves as a personal diary or journal, virtual notebook or storage location for spontaneous ideas and thoughts. In order to use monkkee all you need is an Internet connection. You can access your data from anywhere on the web.</p>
 
+<input type="text" value="Hello World" id="myInput">
+
+<!-- The button used to copy the text -->
+<button onclick="myFunction()">Copy text</button>
 # [$ git clone](https://github.com/Kuznikit/MonkkeeDiploma.git)
 
 # Installation:
