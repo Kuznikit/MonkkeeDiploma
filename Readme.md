@@ -42,8 +42,8 @@ https://github.com/Kuznikit/MonkkeeDiploma.git
 - **pages**
   >BasePage
   >> EntriesPage
-   LoginPage
-   SettingsPage
+  >> LoginPage
+  >> SettingsPage
 - **tests**
   > BaseTest
   > EntriesTest
