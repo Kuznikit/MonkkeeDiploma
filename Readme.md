@@ -17,11 +17,11 @@ https://github.com/Kuznikit/MonkkeeDiploma.git
 </ul>
 
 <h3>Installation:</h3>
-<ul style="list-style-type: circle;">
+
 >IDE: IntelliJ
 >Programming Language: JAVA (v.11.0)
 >Project Type: Maven
-</ul>
+
 
 ### Installation:
 IDE: IntelliJ
