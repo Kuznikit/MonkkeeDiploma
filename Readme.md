@@ -1,6 +1,6 @@
 <h1 align="center"><img src="https://my.monkkee.com/assets/logo-f0892a4a253a67a010b482174e0e4a9f3d95eccc89e4c73422f09d6168df6b6b.png" /></h1>
 <h1 align="center">Monkkee Diploma</h1>
-[Monkkee](https://my.monkkee.com/#/)<p align="center"><em>The safest place for your thoughts. Keep a private and free online diary</em></p>
+<p align="center"><em><a title="monkkee" href="https://my.monkkee.com/#/"><span style="color: #ff6600;"><strong>Monkkee</strong></span></a>&nbsp;The safest place for your thoughts. Keep a private and free online diary</em></p>
 
 [Monkkee](https://my.monkkee.com/#/)
 ---
