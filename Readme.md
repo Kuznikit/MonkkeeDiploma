@@ -1,4 +1,5 @@
- <h1 align="center"><img src="https://my.monkkee.com/assets/logo-f0892a4a253a67a010b482174e0e4a9f3d95eccc89e4c73422f09d6168df6b6b.png">Monkkee Diploma</h1>
+<h1 align="center"><img src="https://my.monkkee.com/assets/logo-f0892a4a253a67a010b482174e0e4a9f3d95eccc89e4c73422f09d6168df6b6b.png"></h1>
+<h1 align="center">Monkkee Diploma</h1>
 
 _ monkkee – the safest place for your thoughts
 Keep a private and free online diary **[Monkkee](https://my.monkkee.com/#/)**_
