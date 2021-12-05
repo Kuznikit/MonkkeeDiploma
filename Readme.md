@@ -9,10 +9,12 @@
 >At monkkee you can write private entries of all kinds, safely encrypted and protected from prying eyes. The secure online diary serves as a personal diary or journal, virtual notebook or storage location for spontaneous ideas and thoughts. In order to use monkkee all you need is an Internet connection. You can access your data from anywhere on the web.
 
 <h3>Clone the repository into your projects directory:</h3>
+
 ```
 https://github.com/Kuznikit/MonkkeeDiploma.git
 ```
---
+
+
 <h3>Installation:</h3>
 <ul style="list-style-type: circle;">
 <li>>IDE: IntelliJ</li>
