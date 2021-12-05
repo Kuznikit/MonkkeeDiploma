@@ -40,9 +40,9 @@ Allure reporting system
 - **QA Student** `Mikita Kuzminich`
 - **Mentor** `Dzmitry Rak`
 
-###Structure:
+#Structure:
 
-|  Package   | Classes                                         | Description                      |
+|  Package   | Classes    |                                    | Description                      |
 | ---------- | ---------- | ---------------------------------- | -------------------------------- |
 |   models   |            |                                    |                                  |
 |            |`EntryFaker`|`import com.github.javafaker.Faker` | For generates fake data          |
