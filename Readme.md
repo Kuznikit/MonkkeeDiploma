@@ -4,9 +4,11 @@
 
 <h3 dir="auto" align="left">Overview:</h3>
 <p>&nbsp; &nbsp; &nbsp; &nbsp;At monkkee you can write private entries of all kinds, safely encrypted and protected from prying eyes. The secure online diary serves as a personal diary or journal, virtual notebook or storage location for spontaneous ideas and thoughts. In order to use monkkee all you need is an Internet connection. You can access your data from anywhere on the web.</p>
-[Clipboardy][chrome-store-url] is a Chrome extension for copying posted code to clipboard from stackoverflow.com, github.com & npmjs.com.
 
-<img src="docs/images/clipboardy_screen_recording.gif" width="600px"/>
+Clone the repository into your projects directory:
+```
+git clone git@github.com:panzerdp/clipboardy.git clipboardy-chrome-extension
+```
 
 # [$ git clone](https://github.com/Kuznikit/MonkkeeDiploma.git)
 
