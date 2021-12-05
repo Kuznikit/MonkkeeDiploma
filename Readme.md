@@ -4,12 +4,9 @@
 
 <h3 dir="auto" align="left">Overview:</h3>
 <p>&nbsp; &nbsp; &nbsp; &nbsp;At monkkee you can write private entries of all kinds, safely encrypted and protected from prying eyes. The secure online diary serves as a personal diary or journal, virtual notebook or storage location for spontaneous ideas and thoughts. In order to use monkkee all you need is an Internet connection. You can access your data from anywhere on the web.</p>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<p id="p1">P1: I am paragraph 1</p>
-<p id="p2">P2: I am a second paragraph</p>
-<button onclick="copyToClipboard('#p1')">Copy P1</button>
-<button onclick="copyToClipboard('#p2')">Copy P2</button>
-<br/><br/><input type="text" placeholder="Paste here for test" />
+[Clipboardy][chrome-store-url] is a Chrome extension for copying posted code to clipboard from stackoverflow.com, github.com & npmjs.com.
+
+<img src="docs/images/clipboardy_screen_recording.gif" width="600px"/>
 
 # [$ git clone](https://github.com/Kuznikit/MonkkeeDiploma.git)
 
