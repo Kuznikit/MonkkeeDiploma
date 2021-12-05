@@ -7,7 +7,7 @@
 
 Clone the repository into your projects directory:
 ```
-git clone git@github.com:panzerdp/clipboardy.git clipboardy-chrome-extension
+https://github.com/Kuznikit/MonkkeeDiploma.git clipboardy-chrome-extension
 ```
 
 # [$ git clone](https://github.com/Kuznikit/MonkkeeDiploma.git)
