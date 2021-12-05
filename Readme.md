@@ -12,7 +12,7 @@ Clone the repository into your projects directory:
 ```
 https://github.com/Kuznikit/MonkkeeDiploma.git
 ```
-***
+---
 <h3>Installation:</h3>
 <ul style="list-style-type: circle;">
 <li>>IDE: IntelliJ</li>
