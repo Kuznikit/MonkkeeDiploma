@@ -40,22 +40,22 @@ https://github.com/Kuznikit/MonkkeeDiploma.git
 - **models**
   >EntryFaker
 - **pages**
-> BasePage
-> EntriesPage
-> LoginPage
-> SettingsPage
+  >BasePage
+  > EntriesPage
+  > LoginPage
+  > SettingsPage
 - **tests**
-> BaseTest
-> EntriesTest
->>createNewEntry
->>deleteLastEntry
-> LoginTest
-> SettingsTest
+  > BaseTest
+  > EntriesTest
+    > createNewEntry
+    > deleteLastEntry
+    > LoginTest
+  > SettingsTest
 - **utils**
-    > AllureUtils
-    > PropertyReader
-    > Retry
-    > TestListener
+  > AllureUtils
+  > PropertyReader
+  > Retry
+  > TestListener
 
 ## Our Team:
 - **QA Student:** `Mikita Kuzminich`
