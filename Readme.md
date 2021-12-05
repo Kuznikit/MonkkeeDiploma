@@ -57,4 +57,17 @@ Allure reporting system
 | `dateEdit` | single     | Timestamp                          | Selected date Timestamp          |
 | `dateEdit` | single     | Timestamp                          | Selected date Timestamp          |
 
-
+|  Package   | Classes                                         | Description                      |
+| ---------- | ---------- | ---------------------------------- | -------------------------------- |
+|   models   |            |                                    |                                  |
+|            |`EntryFaker`|`import com.github.javafaker.Faker` | For generates fake data          |
+|   pages    |            |                                    |                                  |
+| `dateEdit` | BasePage   |                                    | Selected date Timestamp          |
+| `dateEdit` | EntriesPage|                                    | Selected date Timestamp          |
+| `dateEdit` | LoginPage  |                                    | Selected date Timestamp          |
+| `dateEdit` |SettingsPage|                                    | Selected date Timestamp          |
+| `dateEdit` | single     | Timestamp                          | Selected date Timestamp          |
+| `dateEdit` | single     | Timestamp                          | Selected date Timestamp          |
+| `dateEdit` | single     | Timestamp                          | Selected date Timestamp          |
+| `dateEdit` | single     | Timestamp                          | Selected date Timestamp          |
+| `dateEdit` | single     | Timestamp                          | Selected date Timestamp          |
