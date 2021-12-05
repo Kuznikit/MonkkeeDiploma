@@ -3,7 +3,8 @@
 
 ``The safest place for your thoughts
 <br>Keep a private and free online diary``
-*[Monkkee](https://my.monkkee.com/#/)*
+
+[Monkkee](https://my.monkkee.com/#/)
 ---
 
 <h2 align="left">Overview:</h2>
