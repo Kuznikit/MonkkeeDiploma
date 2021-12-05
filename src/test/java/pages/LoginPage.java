@@ -3,13 +3,12 @@ package pages;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import utils.PropertyReader;
 
 import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 @Log4j2
 public class LoginPage extends BasePage {
-    private static final String LOGIN_PAGE_URL = PropertyReader.getProperty("monkkee.url");
+    private static final String LOGIN_PAGE_URL = "https://my.monkkee.com/";
     private static final By LOGIN = By.id("login");
     private static final By PASS = By.id("password");
     private static final By LOGIN_REMIND = By.id("email");

@@ -7,5 +7,6 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 *.iml
+src/test/resources/config.properties
 /target/
 /.idea/
