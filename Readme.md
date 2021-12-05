@@ -40,7 +40,8 @@ Allure reporting system
 - **QA Student** `Mikita Kuzminich`
 - **Mentor** `Dzmitry Rak`
 
-##Structure:
+###Structure:
+
 |  Package   | Classes                                         | Description                      |
 | ---------- | ---------- | ---------------------------------- | -------------------------------- |
 |   models   |            |                                    |                                  |
@@ -55,24 +56,5 @@ Allure reporting system
 | `dateEdit` | single     | Timestamp                          | Selected date Timestamp          |
 | `dateEdit` | single     | Timestamp                          | Selected date Timestamp          |
 | `dateEdit` | single     | Timestamp                          | Selected date Timestamp          |
-
-
-
-## Installation:
->IDE: IntelliJ
-Programming Language: JAVA (v.11.0)
-Proect Type: Maven
-## Frameworks:
-Selenium
-TestNG
-lombok
-### Design Patterns used:
-POM (Page Object Module)
-# Logs
-*log4j2
-# Reporting:
-Allure reporting system
-### Global Usage
-
 
 
