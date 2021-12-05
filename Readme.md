@@ -11,15 +11,15 @@ https://github.com/Kuznikit/MonkkeeDiploma.git
 ```
 <h3>Installation:</h3>
 <ul style="list-style-type: circle;">
-<li>IDE: IntelliJ</li>
-<li>Programming Language: JAVA (v.11.0)</li>
-<li>Project Type: Maven<br /><br /><br /></li>
+<li>>IDE: IntelliJ</li>
+<li>>Programming Language: JAVA (v.11.0)</li>
+<li>>Project Type: Maven<br /><br /><br /></li>
 </ul>
 
 ### Installation:
 IDE: IntelliJ
 Programming Language: JAVA (v.11.0)
-Project Type: Maven
+Proect Type: Maven
 ## Frameworks:
 Selenium
 TestNG
