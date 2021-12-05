@@ -1,28 +1,32 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import models.EntryFaker;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.opera.OperaDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Optional;
 import pages.EntriesPage;
 import pages.LoginPage;
 import pages.SettingsPage;
+import utils.PropertyReader;
+import utils.TestListener;
 
 import java.util.concurrent.TimeUnit;
-
+@Listeners(TestListener.class)
 public class BaseTest {
 
     WebDriver driver;
     LoginPage loginPage;
     EntriesPage entriesPage;
     SettingsPage settingsPage;
-    String user = "Kuznikit@gmail.com";
-    String pass = "Qazxcv123";
+    EntryFaker faker = new EntryFaker();
+    String user = PropertyReader.getProperty("monkkee.user"); // "Kuznikit@gmail.com";
+    String pass = PropertyReader.getProperty("monkkee.pass"); //"Qazxcv123";
 
     @BeforeMethod
     public void setup(@Optional("chrome") String browser, ITestContext context) {
@@ -32,6 +36,7 @@ public class BaseTest {
         options.addArguments("--start-maximized");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
         // if (browser.equals("chrome")) {
         //     WebDriverManager.chromedriver().setup();
 //
@@ -45,6 +50,8 @@ public class BaseTest {
         loginPage = new LoginPage(driver);
         entriesPage = new EntriesPage(driver);
         settingsPage = new SettingsPage(driver);
+        faker = new EntryFaker();
+
     }
 
     @AfterMethod(alwaysRun = true)
