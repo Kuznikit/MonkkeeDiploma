@@ -40,23 +40,27 @@ https://github.com/Kuznikit/MonkkeeDiploma.git
 - **models**
   >EntryFaker
 - **pages**
-  >BasePage
-    >>EntriesPage<br>
-    >>LoginPage<br>
-    >>SettingsPage<br>
+  >BasePage<br>
+  >EntriesPage<br>
+  >LoginPage<br>
+  >SettingsPage<br>
 - **tests**
-  > BaseTest
-  > EntriesTest
-    >> createNewEntry
-      deleteLastEntry
-      LoginTest
-  > SettingsTest
+  > BaseTest<br>
+  > EntriesTest<br>
+  > LoginTest<br>
+  > LogoutTest<br>
+  > SettingsTest<br>
 - **utils**
-  > AllureUtils
-  > PropertyReader
-  > Retry
-  > TestListener
-
+  > AllureUtils<br>
+  > PropertyReader<br>
+  > Retry<br>
+  > TestListener<br>
+- **resources**
+  > allure.properties<br>
+  > config.properties<br>
+  > log4j2-test.yaml<br>
+  > Regression.xml<br>
+  
 ## Our Team:
 - **QA Student:** `Mikita Kuzminich`
 - **Mentor:** `Dzmitry Rak`
