@@ -15,9 +15,9 @@ https://github.com/Kuznikit/MonkkeeDiploma.git
 ```
 
 ## Installation:
-- **IDE: IntelliJ**
-- **Programming Language: JAVA (v.11.0)**
-- **Project Type: Maven**
+- **IDE:** `IntelliJ`
+- **Programming Language:** `JAVA (v.11.0)`
+- **Project Type:** `Maven`
 
 ## Installation:
 Selenium
