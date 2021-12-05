@@ -23,17 +23,42 @@ https://github.com/Kuznikit/MonkkeeDiploma.git
 - **Selenium**
 - **TestNG**
 - **lombok**
+- **Faker library**
+- **Test listener**
 
 ## Design Patterns used:
 - **POM (Page Object Module)**
 
-## Logs
-*log4j2
-
 ## Reporting:
 Allure reporting system
 
-## Global Usage
+## Global Usage:
+- **GitHub**
+- **CircleCI**
+
+## Our Team:
+- **QA Student** `Mikita Kuzminich`
+- **Mentor** `Dzmitry Rak`
+
+##Structure:
+
+
+|  Package   | Classes    | Output                             | Description                      |
+| ---------- | ------     | ---------------------------------- | -------------------------------- |
+|   models   |            |                                    |                                  |
+|            |`EntryFaker`|`import com.github.javafaker.Faker` | For generates fake data          |
+| `dateEdit` | single | Timestamp                          | Selected date Timestamp          |
+| `dateEdit` | single | Timestamp                          | Selected date Timestamp          |
+| `dateEdit` | single | Timestamp                          | Selected date Timestamp          |
+| `dateEdit` | single | Timestamp                          | Selected date Timestamp          |
+| `dateEdit` | single | Timestamp                          | Selected date Timestamp          |
+| `dateEdit` | single | Timestamp                          | Selected date Timestamp          |
+| `dateEdit` | single | Timestamp                          | Selected date Timestamp          |
+| `dateEdit` | single | Timestamp                          | Selected date Timestamp          |
+| `dateEdit` | single | Timestamp                          | Selected date Timestamp          |
+| `dateEdit` | single | Timestamp                          | Selected date Timestamp          |
+
+
 
 ## Installation:
 >IDE: IntelliJ
