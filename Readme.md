@@ -41,9 +41,9 @@ https://github.com/Kuznikit/MonkkeeDiploma.git
   >EntryFaker
 - **pages**
   >BasePage
-    >><br>EntriesPage</br>
-    >>LoginPage
-    >>SettingsPage
+    >>EntriesPage<br>
+    >>LoginPage<br>
+    >>SettingsPage<br>
 - **tests**
   > BaseTest
   > EntriesTest
