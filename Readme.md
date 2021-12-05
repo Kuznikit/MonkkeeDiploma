@@ -30,11 +30,15 @@ https://github.com/Kuznikit/MonkkeeDiploma.git
 - **POM (Page Object Module)**
 
 ## Reporting:
-Allure reporting system
+- **Allure reporting**
 
 ## Global Usage:
 - **GitHub**
 - **CircleCI**
+
+## Global Usage:
+- **GitHub**
+-- **GitHub**
 
 ## Our Team:
 - **QA Student** `Mikita Kuzminich`
