@@ -1,75 +1,71 @@
 package tests;
 
 import org.testng.annotations.Test;
+import utils.Retry;
 
 
 public class SettingsTest extends BaseTest {
-    @Test(description = "")
+    @Test(description = "Checking the opening of the settings page", retryAnalyzer = Retry.class)
     public void checkSettingsPage() {
         loginPage
                 .openLoginPage()
                 .login(user, pass);
         settingsPage
-                .setLink();
+                .openSettingsLink()
+                .settingsPageShouldBeWorking();
     }
 
-    @Test(description = "")
-    public void setLangDE() {
+    @Test(description = "Choosing the German language", retryAnalyzer = Retry.class)
+    public void setLanguageDeutsch() {
         loginPage
                 .openLoginPage()
                 .login(user, pass);
         settingsPage
-                .openSettings()
-                .setLangDE();
+                .openSettingsByButton()
+                .setLanguage("de")
+                .languageShouldBe("de");
     }
-
-    @Test(description = "")
-    public void setLangEN() {
+    @Test(description = "Choosing the France language", retryAnalyzer = Retry.class)
+    public void setLanguageFrance() {
         loginPage
                 .openLoginPage()
                 .login(user, pass);
         settingsPage
-                .openSettings()
-                .setLangEN();
+                .openSettingsByButton()
+                .setLanguage("fr")
+                .languageShouldBe("fr");
     }
 
-    @Test(description = "")
-    public void setLangFR() {
-        loginPage
-                .openLoginPage()
-                .login(user, pass);
-        settingsPage.openSettings()
-                .setLangFR();
-    }
-
-    @Test(description = "")
-    public void setLangPT() {
+    @Test(description = "Choosing the Portugal language", retryAnalyzer = Retry.class)
+    public void setLanguagePortugal() {
         loginPage
                 .openLoginPage()
                 .login(user, pass);
         settingsPage
-                .openSettings()
-                .setLangPT();
+                .openSettingsByButton()
+                .setLanguage("pt")
+                .languageShouldBe("pt");
     }
 
-    @Test(description = "")
+    @Test(description = "Changing the account password", retryAnalyzer = Retry.class)
     public void checkSetNewPass() {
         loginPage
                 .openLoginPage()
                 .login(user, pass);
         settingsPage
                 .openSettingsByButton()
-                .setMenuPass(pass);
+                .setMenuPass()
+                .passShouldBeChanged(pass); //баг
     }
-    @Test(description = "")
+    @Test(description = "Changing the account password inactivity timeout", retryAnalyzer = Retry.class)
     public void checkSetInactivityTimeout() {
         loginPage
                 .openLoginPage()
                 .login(user, pass);
         settingsPage
                 .openSettingsByButton()
-                .setInactivityTimeout();
-
+                .setInactivityTimeout(0)
+                .inactivityTimeoutShouldBeChanged();
     }
 
 }

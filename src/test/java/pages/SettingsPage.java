@@ -1,24 +1,19 @@
 package pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
-
+@Log4j2
 public class SettingsPage extends BasePage {
-    public static final By DROPDOWN = By.name("selectLocale"); //class="form-control ng-pristine ng-valid"
+    public static final By DROPDOWN = By.name("selectLocale");
     public static final By DROPDOWN_TIMEOUT = By.name("autoLogout");
     public static final By SETTINGS_LINK = By.cssSelector(".icon-cog.icon-light");
-    private static final String SETTINGS_PAGE_URL = "https://my.monkkee.com/#/settings/locale";
-    public static final By DE = By.xpath("//*[contains(text(), 'Sprachauswahl')]");
     public static final By EN = By.xpath("//*[contains(text(), 'Language selection')]");
-    public static final By FR = By.xpath("//*[contains(text(), 'Sélection de la langue')]");
-    public static final By PT = By.xpath("//*[contains(text(), 'Seletor de idiomas')]");
-    public static final By MENU_PASS = By.cssSelector("[ng-class=\"cssClass('password')\"]"); //ng-class="cssClass('password')
-    //By.cssSelector("li[ng-class='cssClass('password')']");
-    //public static final By MENU_PASS = By.cssSelector("cssClass('password')");;
+    public static final By MENU_PASS = By.cssSelector("[ng-class=\"cssClass('password')\"]");
     public static final By MENU_TIMEOUT = By.cssSelector("[ng-class=\"cssClass('logout')\"]");
     public static final By OLD_PASS = By.id("old-password");
     public static final By NEW_PASS = By.id("password");
@@ -31,95 +26,74 @@ public class SettingsPage extends BasePage {
         super(driver);
     }
 
-    public void setLink() {
+    public SettingsPage openSettingsLink() {
+        log.info("Opening the settings page via the link");
+        driver.findElement(SETTINGS_LINK).click();
+       return new SettingsPage(driver);
+    }
+
+    public void settingsPageShouldBeWorking() {
+        log.info("Checking the opening of the settings page via the link");
         driver.findElement(SETTINGS_LINK).click();
         assertTrue("Setting link doesn't work",
                 driver.findElement(EN).isDisplayed());
         new SettingsPage(driver);
     }
 
-    public SettingsPage openSettings() {
-        driver.get(SETTINGS_PAGE_URL);
-        return new SettingsPage(driver);
-    }
-
     public SettingsPage openSettingsByButton() {
+        log.info("Opening the settings page");
         driver.findElement(SETTINGS_LINK).click();
         return new SettingsPage(driver);
     }
 
-    public void setLangDE() {
+    public SettingsPage setLanguage(String lang) {
+        log.info("Language selection \"" + lang + "\"");
         Select select = new Select(driver.findElement(DROPDOWN));
-        select.selectByIndex(0);
-        driver.findElement(DROPDOWN).submit();
-        assertEquals("Set Lang doesn't work", "Sprachauswahl",
-                driver.findElement(DE).getText());
-        Select selectDef = new Select(driver.findElement(DROPDOWN));
-        selectDef.selectByIndex(1);
-        driver.findElement(DROPDOWN).submit();
-        new SettingsPage(driver);
-    }
-
-    public void setLangEN() {
-        Select select = new Select(driver.findElement(DROPDOWN));
-        select.selectByIndex(1);
-        driver.findElement(DROPDOWN).submit();
-        assertEquals("Set Lang doesn't work", "Language selection",
-                driver.findElement(EN).getText());
-        new SettingsPage(driver);
-    }
-
-    public void setLangFR() {
-        Select select = new Select(driver.findElement(DROPDOWN));
-        select.selectByIndex(2);
-        driver.findElement(DROPDOWN).submit();
-        assertEquals("Set Lang doesn't work", "Sélection de la langue",
-                driver.findElement(FR).getText());
-        Select selectDef = new Select(driver.findElement(DROPDOWN));
-        selectDef.selectByIndex(1);
-        driver.findElement(DROPDOWN).submit();
-        new SettingsPage(driver);
-    }
-
-    public void setLangPT() {
-        Select select = new Select(driver.findElement(DROPDOWN));
-        select.selectByIndex(3);
-        driver.findElement(DROPDOWN).submit();
-        assertEquals("Set Lang doesn't work", "Seletor de idiomas",
-                driver.findElement(PT).getText());
-        Select selectDef = new Select(driver.findElement(DROPDOWN));
-        selectDef.selectByIndex(1);
-        driver.findElement(DROPDOWN).submit();
-        new SettingsPage(driver);
-    }
-
-    public SettingsPage setLangDefault() {
-        Select select = new Select(driver.findElement(DROPDOWN));
-        select.selectByIndex(1);
+        select.selectByValue(lang);
         driver.findElement(DROPDOWN).submit();
         return new SettingsPage(driver);
-
     }
+    public void languageShouldBe(String lang) {
+        log.info("checking that the language is selected \"" + lang + "\"");
+        driver.findElement(DROPDOWN).getAttribute("value");
+        assertEquals(driver.findElement(DROPDOWN).getAttribute("value"), lang);
+        Select select2 = new Select(driver.findElement(DROPDOWN));
+        select2.selectByValue("en");
+        driver.findElement(DROPDOWN).submit();
+        new SettingsPage(driver);
+    }
+//спрятать логин и пароли
 
-    public void setMenuPass(String pass) {
+    public SettingsPage setMenuPass() {
+        log.info("Opening a menu with password settings");
         driver.findElement(MENU_PASS).click();
+        return new SettingsPage(driver);
+    }
+    public void passShouldBeChanged(String pass) {
+        log.info("Entering data to change the password");
         driver.findElement(OLD_PASS).sendKeys(pass);
         driver.findElement(NEW_PASS).sendKeys(pass);
         driver.findElement(NEW_CONF).sendKeys(pass);
         driver.findElement(NEW_HINT).sendKeys(pass);
         driver.findElement(NEW_HINT).submit();
+        log.info("Checking that the password has been changed successfully");
         assertEquals("Pass doesn't change, something wrong", "Your password has been changed successfully",
                 driver.findElement(PASS_CHANGED).getText());
         new SettingsPage(driver);
     }
 
-    public void setInactivityTimeout() {
+    public SettingsPage setInactivityTimeout(int index) {
+        log.info("Opening a menu with timeout settings");
         driver.findElement(MENU_TIMEOUT).click();
+        log.info("Changing the timeout settings");
         Select select = new Select(driver.findElement(DROPDOWN_TIMEOUT));
-        select.selectByIndex(0);
+        select.selectByIndex(index);
         driver.findElement(DROPDOWN_TIMEOUT).submit();
+        return new SettingsPage(driver);
+    }
+    public void inactivityTimeoutShouldBeChanged() {
+        log.info("Checking that the timeout has been changed successfully");
         assertEquals("Timeout doesn't change, something wrong", "Your settings have been saved successfully",
                 driver.findElement(TIMEOUT_CHANGED).getText());
-        new SettingsPage(driver);
     }
 }

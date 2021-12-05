@@ -10,7 +10,6 @@ public class BasePage {
     public static final By CREATE_ENTRY = By.id("create-entry");
     public static final By POPUP_WINDOW =  By.cssSelector(".modal-content");
     public static final By POPUP_SUBMIT = By.xpath("//*[text()='Cancel']");
-    public static final By POPUP_LOGOUT_SUBMIT = By.className("button[custom-modal-close='logout()']");
     WebDriver driver;
     WebDriverWait wait;
     public BasePage(WebDriver driver) {
