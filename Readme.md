@@ -47,9 +47,9 @@ https://github.com/Kuznikit/MonkkeeDiploma.git
 - **tests**
   > BaseTest
   > EntriesTest
-    > createNewEntry
-    > deleteLastEntry
-    > LoginTest
+    >> createNewEntry
+      deleteLastEntry
+      LoginTest
   > SettingsTest
 - **utils**
   > AllureUtils
