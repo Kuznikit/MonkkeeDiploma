@@ -14,12 +14,12 @@
 https://github.com/Kuznikit/MonkkeeDiploma.git
 ```
 
-### Installation:
+## Installation:
 >IDE: IntelliJ
 <br>Programming Language: JAVA (v.11.0)
 <br>Proect Type: Maven
 
-## Frameworks:
+## Installation:
 Selenium
 TestNG
 lombok
@@ -27,10 +27,15 @@ lombok
 ## Design Patterns used:
 POM (Page Object Module)
 
-# Logs
+
+
+
+
+
+### Logs
 *log4j2
 
-# Reporting:
+### Reporting:
 Allure reporting system
 ### Global Usage
 
@@ -57,7 +62,7 @@ Proect Type: Maven
 Selenium
 TestNG
 lombok
-## Design Patterns used:
+### Design Patterns used:
 POM (Page Object Module)
 # Logs
 *log4j2
