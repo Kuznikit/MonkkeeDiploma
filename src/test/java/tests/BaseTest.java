@@ -13,6 +13,7 @@ import org.testng.annotations.Optional;
 import pages.EntriesPage;
 import pages.LoginPage;
 import pages.SettingsPage;
+
 import utils.PropertyReader;
 import utils.TestListener;
 
@@ -25,8 +26,8 @@ public class BaseTest {
     EntriesPage entriesPage;
     SettingsPage settingsPage;
     EntryFaker faker = new EntryFaker();
-    String user = PropertyReader.getProperty("monkkee.user"); // "Kuznikit@gmail.com";
-    String pass = PropertyReader.getProperty("monkkee.pass"); //"Qazxcv123";
+    String user; //= PropertyReader.getProperty("monkkee.user");
+    String pass; //= PropertyReader.getProperty("monkkee.pass");
 
     @BeforeMethod
     public void setup(@Optional("chrome") String browser, ITestContext context) {
@@ -34,7 +35,7 @@ public class BaseTest {
         pass = System.getenv().getOrDefault("MONKKEE_PASS", PropertyReader.getProperty("monkkee.pass"));
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        //options.addArguments("--headless");
+        options.addArguments("--headless");
         options.addArguments("--start-maximized");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
