@@ -5,7 +5,7 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+//повесить retry через anatation transormer
 public class BasePage {
     public static final By CREATE_ENTRY = By.id("create-entry");
     public static final By POPUP_WINDOW =  By.cssSelector(".modal-content");
