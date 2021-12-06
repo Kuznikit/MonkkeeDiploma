@@ -24,9 +24,6 @@ public class EntriesPage extends BasePage {
     public static final By BOLD_STYLE = By.cssSelector(".cke_button_icon.cke_button__bold_icon");
     public static final By NUM_STYLE = By.cssSelector(".cke_button_icon.cke_button__numberedlist_icon");
     public static final By MAXIMIZED_STYLE = By.cssSelector(".cke_button_icon.cke_button__simplemaximize_icon");
-    public static final By COLOR_STYLE = By.cssSelector(".cke_button_icon.cke_button__textcolor_icon");
-
-
 
     public EntriesPage(WebDriver driver) {
         super(driver);
@@ -37,7 +34,6 @@ public class EntriesPage extends BasePage {
         Actions action = new Actions(driver);
         action.click(driver.findElement(EDITABLE_FIELD))
                 .sendKeys(entryText)
-                .sendKeys(entryText)
                 .perform();
         log.info("Creating new entry with text \"" + entryText + "\"");
         driver.findElement(SAVE_NEW_ENTRY_BUTTON).click();
@@ -45,25 +41,24 @@ public class EntriesPage extends BasePage {
         return new EntriesPage(driver);
     }
 
-    public void entryShouldBe(String entryText) {
+    public EntriesPage entryShouldBe(String entryText) {
         log.info("Verifying that the entry with text \"" + entryText + "\" was created correctly");
         assertEquals("New entry has not been added", entryText,
                 driver.findElement(NEW_ENTRY).getText());
-        new EntriesPage(driver);
+       return new EntriesPage(driver);
     }
 
-
-    public EntriesPage newEntryFaker(String entryText) {
-        log.info("Creating new entry with text \"" + entryText + "\"");
+    public EntriesPage newEntryFaker(String entryTextFaker) {
+        log.info("Creating new entry with text \"" + entryTextFaker + "\"");
         driver.findElement(CREATE_ENTRIES_BUTTON).click();
         Actions action = new Actions(driver);
         action.click(driver.findElement(EDITABLE_FIELD))
                 .click(driver.findElement(MAXIMIZED_STYLE))
                 .click(driver.findElement(BOLD_STYLE))
-                .sendKeys(entryText)
+                .sendKeys(entryTextFaker)
                 .click(driver.findElement(NUM_STYLE))
                 .sendKeys(Keys.ENTER)
-                .sendKeys(entryText)
+                .sendKeys(entryTextFaker)
                 .click(driver.findElement(MAXIMIZED_STYLE))
                 .perform();
         driver.findElement(SAVE_NEW_ENTRY_BUTTON).click();

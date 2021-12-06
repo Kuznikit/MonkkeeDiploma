@@ -3,9 +3,9 @@ import org.testng.annotations.Test;
 import utils.Retry;
 
 public class EntriesTest extends BaseTest {
-    String entryText = faker.RandomEntryText();
+    String entryTextFaker = faker.RandomEntryText();
 //вынести проверки на уровень тестов
-//redme.md
+//readme.md
 //    добавить логирование
 //    степы не добавлять
 //спрятать логин и пароль
@@ -26,7 +26,7 @@ public class EntriesTest extends BaseTest {
                 .openLoginPage()
                 .login(user, pass);
         entriesPage
-                .newEntryFaker(entryText)
+                .newEntryFaker(entryTextFaker)
                 .deleteLastEntry()
                 .entriesShouldBeDeleted();
     }
@@ -37,9 +37,9 @@ public class EntriesTest extends BaseTest {
                 .openLoginPage()
                 .login(user, pass);
         entriesPage
-                .newEntryFaker(entryText)
-                .newEntryFaker(entryText)
-                .newEntryFaker(entryText)
+                .newEntryFaker(entryTextFaker)
+                .newEntryFaker(entryTextFaker)
+                .newEntryFaker(entryTextFaker)
                 .deleteAllEntries()
                 .entriesShouldBeDeleted();
     }
@@ -49,8 +49,8 @@ public class EntriesTest extends BaseTest {
         loginPage.openLoginPage()
                 .login(user, pass);
         entriesPage
-                .newEntryFaker(entryText)
-                .newEntryFaker(entryText)
+                .newEntryFaker(entryTextFaker)
+                .newEntryFaker(entryTextFaker)
                 .newEntry("My third entry")
                 .searchEntryShouldBe("My")
                 .deleteAllEntries();

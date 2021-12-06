@@ -12,6 +12,7 @@ public class BasePage {
     public static final By POPUP_SUBMIT = By.xpath("//*[text()='Cancel']");
     WebDriver driver;
     WebDriverWait wait;
+
     public BasePage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, 10);

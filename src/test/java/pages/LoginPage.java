@@ -8,7 +8,7 @@ import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 @Log4j2
 public class LoginPage extends BasePage {
-    private static final String LOGIN_PAGE_URL = "https://my.monkkee.com/";
+    private static final String LOGIN_PAGE_URL = "https://my.monkkee.com/#/";
     private static final By LOGIN = By.id("login");
     private static final By PASS = By.id("password");
     private static final By LOGIN_REMIND = By.id("email");
@@ -19,6 +19,7 @@ public class LoginPage extends BasePage {
     private static final By REMIND_DONE = By.xpath("//*[contains(text(), 'Password hint sent')]");
     public static final By MANDATORY_ERROR = By.xpath("//*[contains(text(), 'Mandatory field')]");
     public static final By LOGOUT_LINK = By.cssSelector("button[ng-click='logout($event)']");
+
     public LoginPage(WebDriver driver) {
         super(driver);
     }
@@ -45,26 +46,27 @@ public class LoginPage extends BasePage {
         new LoginPage(driver);
     }
 
-    public void mandatoryFieldShouldBeDisplayed() {
+    public LoginPage mandatoryFieldShouldBeDisplayed() {
         log.info("Verifying that the mandatory field should be filled in");
         assertEquals("Mandatory field", "Mandatory field",
                 driver.findElement(MANDATORY_ERROR).getText());
-        new LoginPage(driver);
+       return new LoginPage(driver);
     }
 
-    public void registerPageShouldBeOpened() {
+    public LoginPage registerPageShouldBeOpened() {
         driver.findElement(REGISTER_LINK).click();
         log.info("Verifying that the register page opens");
         assertTrue("The registration link doesn't work, you have to do something",
                 driver.findElement(REGISTRATION).isDisplayed());
-        new LoginPage(driver);
+        return new LoginPage(driver);
     }
 
-    public void reminderPageShouldBeOpened() {
+    public LoginPage reminderPageShouldBeOpened() {
         driver.findElement(REMIND_LINK).click();
         log.info("Checking that the password reminder page opens");
         assertTrue("The remind link doesn't work, you have to do something",
                 driver.findElement(REMIND).isDisplayed());
+        return new LoginPage(driver);
     }
 
     public LoginPage remindPass(String user) {
@@ -89,8 +91,9 @@ public class LoginPage extends BasePage {
                 driver.findElement(REMIND_LINK).getText());
         return new LoginPage(driver);
     }
-    public void logoutShouldBeWorking() {
-        assertEquals("logout doesn't work", "Send password reminder",
-                driver.findElement(REMIND_LINK).getText());
+    public LoginPage logoutShouldBeWorking() {
+        assertTrue("logout doesn't work",
+                driver.findElement(LOGIN).isDisplayed());
+        return new LoginPage(driver);
     }
 }

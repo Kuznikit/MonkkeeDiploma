@@ -26,8 +26,8 @@ public class BaseTest {
     EntriesPage entriesPage;
     SettingsPage settingsPage;
     EntryFaker faker = new EntryFaker();
-    String user; //= PropertyReader.getProperty("monkkee.user");
-    String pass; //= PropertyReader.getProperty("monkkee.pass");
+    String user;// = PropertyReader.getProperty("monkkee.user");
+    String pass;// = PropertyReader.getProperty("monkkee.pass");
 
     @BeforeMethod
     public void setup(@Optional("chrome") String browser, ITestContext context) {
@@ -48,13 +48,12 @@ public class BaseTest {
         //     WebDriverManager.operadriver().setup();
         //     driver = new OperaDriver();
         // }
-        //  context.setAttribute("driver", driver);
+          context.setAttribute("driver", driver);
         //  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         loginPage = new LoginPage(driver);
         entriesPage = new EntriesPage(driver);
         settingsPage = new SettingsPage(driver);
         faker = new EntryFaker();
-
     }
 
     @AfterMethod(alwaysRun = true)
