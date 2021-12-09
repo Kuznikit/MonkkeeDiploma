@@ -39,11 +39,11 @@ public class LoginPage extends BasePage {
         return new LoginPage(driver);
     }
 
-    public void loginPageShouldBeOpened() {
+    public LoginPage loginPageShouldBeOpened() {
         log.info("Verifying that the login and password correct");
         assertTrue("Wrong username or password, you have to do something",
                 driver.findElement(CREATE_ENTRY).isDisplayed());
-        new LoginPage(driver);
+        return new LoginPage(driver);
     }
 
     public LoginPage mandatoryFieldShouldBeDisplayed() {
@@ -87,6 +87,7 @@ public class LoginPage extends BasePage {
     public LoginPage logout() {
         log.info("Checking logout link");
         driver.findElement(LOGOUT_LINK).click();
+
         assertEquals("logout doesn't work", "Send password reminder",
                 driver.findElement(REMIND_LINK).getText());
         return new LoginPage(driver);

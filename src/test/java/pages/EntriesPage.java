@@ -47,8 +47,18 @@ public class EntriesPage extends BasePage {
                 driver.findElement(NEW_ENTRY).getText());
        return new EntriesPage(driver);
     }
-
     public EntriesPage newEntryFaker(String entryTextFaker) {
+        log.info("Creating new entry with text \"" + entryTextFaker + "\"");
+        driver.findElement(CREATE_ENTRIES_BUTTON).click();
+        Actions action = new Actions(driver);
+        action.click(driver.findElement(EDITABLE_FIELD))
+                .sendKeys(entryTextFaker)
+                .perform();
+        driver.findElement(SAVE_NEW_ENTRY_BUTTON).click();
+        driver.findElement(BACK_TO_ENTRIES_PAGE_BUTTON).click();
+        return new EntriesPage(driver);
+    }
+    public EntriesPage newEntryFakerStyle(String entryTextFaker) {
         log.info("Creating new entry with text \"" + entryTextFaker + "\"");
         driver.findElement(CREATE_ENTRIES_BUTTON).click();
         Actions action = new Actions(driver);
@@ -74,13 +84,14 @@ public class EntriesPage extends BasePage {
         return new EntriesPage(driver);
     }
 
-    public void entriesShouldBeDeleted() {
+    public EntriesPage entriesShouldBeDeleted() {
         log.info("Verifying that the entries was deleted correctly");
         try {
             driver.findElement(SELECT_LAST_CHECKBOX).isDisplayed();
         } catch (NoSuchElementException ex) {
             Assert.fail("Last entry doesn't deleted");
         }
+        return new EntriesPage(driver);
     }
 
     public EntriesPage deleteAllEntries() {

@@ -57,15 +57,4 @@ public class SettingsTest extends BaseTest {
                 .setMenuPass()
                 .passShouldBeChanged(pass); //баг
     }
-
-   @Test( description = "Changing the account password inactivity timeout")
-    public void checkSetInactivityTimeout() {
-        loginPage
-                .openLoginPage()
-                .login(user, pass);
-        settingsPage
-                .openSettingsByButton()
-                .setInactivityTimeout("-1")
-                .inactivityTimeoutShouldBeChanged("-1");
-    }
 }

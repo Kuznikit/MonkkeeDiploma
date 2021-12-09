@@ -50,7 +50,7 @@ public class SettingsPage extends BasePage {
 
     public SettingsPage openSettingsByButton() {
         log.info("Opening the settings page");
-        driver.findElement(SETTINGS_BUTTON).click();
+        driver.findElement(SETTINGS_LINK).click();
         return new SettingsPage(driver);
     }
 
@@ -87,6 +87,7 @@ public class SettingsPage extends BasePage {
 
     public void passShouldBeChanged(String pass) {
         log.info("Entering data to change the password");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(OLD_PASS));
         driver.findElement(OLD_PASS).sendKeys(pass);
         driver.findElement(NEW_PASS).sendKeys(pass);
         driver.findElement(NEW_CONF).sendKeys(pass);
@@ -97,30 +98,5 @@ public class SettingsPage extends BasePage {
                 driver.findElement(PASS_CHANGED).getText());
         new SettingsPage(driver);
     }
-
-    public SettingsPage setInactivityTimeout(String value) {
-        log.info("Opening a menu with timeout settings");
-        try{
-            wait.until(ExpectedConditions.invisibilityOfElementLocated(MENU_TIMEOUT));
-        }catch (TimeoutException exception) {
-            driver.findElement(DROPDOWN_TIMEOUT).click();
-        }
-        log.info("Changing the timeout settings");
-       // wait.until(ExpectedConditions.visibilityOfElementLocated(DROPDOWN_TIMEOUT));
-        System.out.println(driver.findElement(DROPDOWN_TIMEOUT).getText());
-
-        Select select3 = new Select(driver.findElement(DROPDOWN_TIMEOUT2));
-        select3.selectByValue(value);
-        driver.findElement(DROPDOWN_TIMEOUT2).submit();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(CONFIRM));
-        System.out.println(driver.findElement(DROPDOWN_TIMEOUT2).getAttribute("value"));
-
-        //assertEquals(driver.findElement(DROPDOWN).getAttribute("value"), lang);
-        return new SettingsPage(driver);
-    }
-    public void inactivityTimeoutShouldBeChanged(String value) {
-        log.info("Checking that the timeout has been changed successfully");
-        assertEquals("Timeout doesn't change, something wrong", value,
-                driver.findElement(DROPDOWN_TIMEOUT).getAttribute("value"));
-    }
 }
+

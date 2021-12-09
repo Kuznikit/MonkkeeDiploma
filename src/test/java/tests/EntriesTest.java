@@ -21,7 +21,7 @@ public class EntriesTest extends BaseTest {
                 .openLoginPage()
                 .login(user, pass);
         entriesPage
-                .newEntryFaker(entryTextFaker)
+                .newEntryFakerStyle(entryTextFaker)
                 .deleteLastEntry()
                 .entriesShouldBeDeleted();
     }
@@ -44,7 +44,6 @@ public class EntriesTest extends BaseTest {
         loginPage.openLoginPage()
                 .login(user, pass);
         entriesPage
-                .newEntryFaker(entryTextFaker)
                 .newEntryFaker(entryTextFaker)
                 .newEntry("My third entry")
                 .searchEntryShouldBe("My")
