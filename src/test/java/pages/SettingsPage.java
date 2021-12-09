@@ -106,7 +106,7 @@ public class SettingsPage extends BasePage {
             driver.findElement(DROPDOWN_TIMEOUT).click();
         }
         log.info("Changing the timeout settings");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(DROPDOWN_TIMEOUT));
+       // wait.until(ExpectedConditions.visibilityOfElementLocated(DROPDOWN_TIMEOUT));
         System.out.println(driver.findElement(DROPDOWN_TIMEOUT).getText());
 
         Select select3 = new Select(driver.findElement(DROPDOWN_TIMEOUT2));
