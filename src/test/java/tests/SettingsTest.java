@@ -3,7 +3,6 @@ package tests;
 import org.testng.annotations.Test;
 import utils.Retry;
 
-
 public class SettingsTest extends BaseTest {
     @Test(description = "Checking the opening of the settings page", retryAnalyzer = Retry.class)
     public void checkSettingsPage() {
@@ -25,6 +24,7 @@ public class SettingsTest extends BaseTest {
                 .setLanguage("de")
                 .languageShouldBe("de");
     }
+
     @Test(description = "Choosing the France language", retryAnalyzer = Retry.class)
     public void setLanguageFrance() {
         loginPage
@@ -57,16 +57,15 @@ public class SettingsTest extends BaseTest {
                 .setMenuPass()
                 .passShouldBeChanged(pass); //баг
     }
-    @Test( description = "Changing the account password inactivity timeout", retryAnalyzer = Retry.class)
+
+   @Test( description = "Changing the account password inactivity timeout")
     public void checkSetInactivityTimeout() {
         loginPage
                 .openLoginPage()
                 .login(user, pass);
         settingsPage
                 .openSettingsByButton()
-                .setInactivityTimeout(1)
-                .setInactivityTimeout(0)
-                .inactivityTimeoutShouldBeChanged();
+                .setInactivityTimeout("-1")
+                .inactivityTimeoutShouldBeChanged("-1");
     }
-
 }

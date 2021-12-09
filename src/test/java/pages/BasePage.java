@@ -10,6 +10,8 @@ public class BasePage {
     public static final By CREATE_ENTRY = By.id("create-entry");
     public static final By POPUP_WINDOW =  By.cssSelector(".modal-content");
     public static final By POPUP_SUBMIT = By.xpath("//*[text()='Cancel']");
+    public static final By POPUP_SUBMIT2 = By.cssSelector("[class=btn-text-content]");
+
     WebDriver driver;
     WebDriverWait wait;
 
@@ -22,7 +24,7 @@ public class BasePage {
         try{
             wait.until(ExpectedConditions.invisibilityOfElementLocated(POPUP_WINDOW));
         }catch (TimeoutException exception) {
-            driver.findElement(POPUP_SUBMIT).click();
+            driver.findElement(POPUP_SUBMIT2).click();
         }
     }
   /*  public void popupLogoutSubmit(){

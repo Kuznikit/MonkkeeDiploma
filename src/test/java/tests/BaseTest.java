@@ -13,7 +13,6 @@ import org.testng.annotations.Optional;
 import pages.EntriesPage;
 import pages.LoginPage;
 import pages.SettingsPage;
-
 import utils.PropertyReader;
 import utils.TestListener;
 
@@ -26,8 +25,8 @@ public class BaseTest {
     EntriesPage entriesPage;
     SettingsPage settingsPage;
     EntryFaker faker = new EntryFaker();
-    String user;// = PropertyReader.getProperty("monkkee.user");
-    String pass;// = PropertyReader.getProperty("monkkee.pass");
+    String user;
+    String pass;
 
     @BeforeMethod
     public void setup(@Optional("chrome") String browser, ITestContext context) {
@@ -39,17 +38,7 @@ public class BaseTest {
         options.addArguments("--start-maximized");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-        // if (browser.equals("chrome")) {
-        //     WebDriverManager.chromedriver().setup();
-//
-        //       driver = new ChromeDriver();
-        //  } else if (browser.equals("opera")) {
-        //     WebDriverManager.operadriver().setup();
-        //     driver = new OperaDriver();
-        // }
-          context.setAttribute("driver", driver);
-        //  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        context.setAttribute("driver", driver);
         loginPage = new LoginPage(driver);
         entriesPage = new EntriesPage(driver);
         settingsPage = new SettingsPage(driver);
@@ -60,7 +49,6 @@ public class BaseTest {
     public void tearDown() {
         if (driver != null) {
             driver.quit();
-
         }
     }
 }

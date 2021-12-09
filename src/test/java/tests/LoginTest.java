@@ -10,6 +10,7 @@ public class LoginTest extends BaseTest {
                .login(user, pass)
                .loginPageShouldBeOpened();
    }
+
     @Test(description = "Checking the required field to fill in", retryAnalyzer = Retry.class)
     public void checkMandatoryField () {
         loginPage
@@ -17,12 +18,14 @@ public class LoginTest extends BaseTest {
                 .login(user, "")
                 .mandatoryFieldShouldBeDisplayed();
     }
+
     @Test(description = "Checking the opening of the registration page", retryAnalyzer = Retry.class)
     public void checkRegistrationPage () {
         loginPage
                 .openLoginPage()
                 .registerPageShouldBeOpened();
     }
+
     @Test(description = "Checking the opening of the password reminder page", retryAnalyzer = Retry.class)
     public void checkRemindPage () {
         loginPage
@@ -30,6 +33,7 @@ public class LoginTest extends BaseTest {
                 .reminderPageShouldBeOpened();
 
     }
+
     @Test(description = "Password recovery by email", retryAnalyzer = Retry.class)
     public void checkRemindPass () {
         loginPage

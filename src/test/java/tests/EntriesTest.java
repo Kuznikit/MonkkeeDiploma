@@ -4,12 +4,7 @@ import utils.Retry;
 
 public class EntriesTest extends BaseTest {
     String entryTextFaker = faker.RandomEntryText();
-//вынести проверки на уровень тестов
-//readme.md
-//    добавить логирование
-//    степы не добавлять
-//спрятать логин и пароль
-//            добавить проверку записи и менять текст с обычного на красивый (курсив, жирный)
+
     @Test(description = "Creating a new entry", retryAnalyzer = Retry.class)
     public void createNewEntry() {
         loginPage
