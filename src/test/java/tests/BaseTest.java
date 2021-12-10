@@ -34,7 +34,7 @@ public class BaseTest {
         pass = System.getenv().getOrDefault("MONKKEE_PASS", PropertyReader.getProperty("monkkee.pass"));
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        //options.addArguments("--headless");
+        options.addArguments("--headless");
         options.addArguments("--start-maximized");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

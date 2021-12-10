@@ -8,8 +8,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-import static pages.LoginPage.POPUP_LOGOUT_SUBMIT;
-
 //повесить retry через anatation transormer
 public class BasePage {
     public static final By CREATE_ENTRY = By.id("create-entry");
@@ -27,7 +25,7 @@ public class BasePage {
 
     public void popupLoginSubmit() {
         List<WebElement> popup = driver.findElements(POPUP_WINDOW);
-        if (popup.size() > 1) {
+        if (popup.size() > 0) {
             wait.until(ExpectedConditions.elementToBeClickable(POPUP_SUBMIT));
             driver.findElement(POPUP_SUBMIT).click();
         }

@@ -5,7 +5,7 @@ import utils.Retry;
 public class EntriesTest extends BaseTest {
     String entryTextFaker = faker.RandomEntryText();
 
-    @Test(description = "Creating a new entry", retryAnalyzer = Retry.class)
+    @Test(description = "Creating a new entry")
     public void createNewEntry() {
         loginPage
                 .openLoginPage()
