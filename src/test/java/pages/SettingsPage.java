@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
@@ -12,34 +13,29 @@ import static org.testng.AssertJUnit.assertTrue;
 @Log4j2
 public class SettingsPage extends BasePage {
     public static final By DROPDOWN = By.name("selectLocale");
-    public static final By DROPDOWN_TIMEOUT = By.name("autoLogout");// ng-pristine ng-valid
-    public static final By DROPDOWN_TIMEOUT2 = By.cssSelector(".form-control.ng-pristine.ng-valid");
     public static final By SETTINGS_LINK = By.cssSelector(".icon-cog.icon-light");
-    public static final By SETTINGS_BUTTON = By.cssSelector("[class=user-menu-btn]");
     public static final By EN = By.xpath("//*[contains(text(), 'Language selection')]");
     public static final By SETTINGS_MENU = By.id("settings-menu");
     public static final By MENU_PASS = By.cssSelector("[ng-class=\"cssClass('password')\"]");
-    public static final By MENU_TIMEOUT = By.cssSelector("[ng-class=\"cssClass('logout')\"]");
-    public static final By MENU_LANG = By.cssSelector("[ng-class=\"cssClass('locale')\"]");
     public static final By OLD_PASS = By.id("old-password");
     public static final By NEW_PASS = By.id("password");
     public static final By NEW_CONF = By.id("password-confirmation");
     public static final By NEW_HINT = By.id("password-hint");
     public static final By PASS_CHANGED = By.xpath("//*[contains(text(), 'Your password has been changed successfully')]");
-    public static final By TIMEOUT_CHANGED = By.xpath("//*[contains(text(), 'Your settings have been saved successfully')]");
-    public static final By OK_BUTTON = By.cssSelector("[class=btn-text-content]");
     public static final By CONFIRM = By.cssSelector(".alert");
 
     public SettingsPage(WebDriver driver) {
         super(driver);
     }
 
+    @Step("Opening settings page")
     public SettingsPage openSettingsLink() {
         log.info("Opening the settings page via the link");
         driver.findElement(SETTINGS_LINK).click();
        return new SettingsPage(driver);
     }
 
+    @Step("Checking that the settings page should open")
     public void settingsPageShouldBeWorking() {
         log.info("Checking the opening of the settings page via the link");
         driver.findElement(SETTINGS_LINK).click();
@@ -48,22 +44,24 @@ public class SettingsPage extends BasePage {
         new SettingsPage(driver);
     }
 
+    @Step("Opening settings page via settings button")
     public SettingsPage openSettingsByButton() {
         log.info("Opening the settings page");
         driver.findElement(SETTINGS_LINK).click();
         return new SettingsPage(driver);
     }
 
+    @Step("Changing language settings")
     public SettingsPage setLanguage(String lang) {
         log.info("Language selection \"" + lang + "\"");
         Select select = new Select(driver.findElement(DROPDOWN));
         select.selectByValue(lang);
         driver.findElement(DROPDOWN).submit();
         wait.until(ExpectedConditions.visibilityOfElementLocated(CONFIRM));
-        System.out.println(driver.findElement(DROPDOWN).getAttribute("value"));
-
         return new SettingsPage(driver);
     }
+
+    @Step("Checking that the language settings work")
     public SettingsPage languageShouldBe(String lang) {
         log.info("checking that the language is selected \"" + lang + "\"");
         driver.findElement(DROPDOWN).getAttribute("value");
@@ -75,6 +73,7 @@ public class SettingsPage extends BasePage {
         return new SettingsPage(driver);
     }
 
+    @Step("Opening language settings via block menu")
     public SettingsPage setMenuPass() {
         log.info("Opening a menu with password settings");
         try{
@@ -85,6 +84,7 @@ public class SettingsPage extends BasePage {
         return new SettingsPage(driver);
     }
 
+    @Step("Changing the password to a new one and checking it")
     public void passShouldBeChanged(String pass) {
         log.info("Entering data to change the password");
         wait.until(ExpectedConditions.visibilityOfElementLocated(OLD_PASS));
