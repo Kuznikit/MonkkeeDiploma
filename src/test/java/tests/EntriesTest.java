@@ -15,7 +15,7 @@ public class EntriesTest extends BaseTest {
                 .entryShouldBe("My first entry");
     }
 
-    @Test(description = "Creating a new entry and deleting", retryAnalyzer = Retry.class)
+    @Test(description = "Creating a new entry and deleting")
     public void deleteLastEntry() {
         loginPage
                 .openLoginPage()
@@ -26,7 +26,7 @@ public class EntriesTest extends BaseTest {
                 .entriesShouldBeDeleted();
     }
 
-    @Test(description = "Creating new entries and deleting via checkbox all", retryAnalyzer = Retry.class)
+    @Test(description = "Creating new entries and deleting via checkbox all")
     public void deleteAllEntries() {
         loginPage
                 .openLoginPage()
@@ -39,7 +39,7 @@ public class EntriesTest extends BaseTest {
                 .entriesShouldBeDeleted();
     }
 
-    @Test(description = "Entry search", retryAnalyzer = Retry.class)
+    @Test(description = "Entry search")
     public void searchEntry () {
         loginPage.openLoginPage()
                 .login(user, pass);

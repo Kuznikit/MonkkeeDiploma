@@ -3,7 +3,7 @@ import org.testng.annotations.Test;
 import utils.Retry;
 
 public class LoginTest extends BaseTest {
-   @Test(description = "Opening the login page with login and password", retryAnalyzer = Retry.class)
+   @Test(description = "Opening the login page with login and password")
     public void openLoginPage (){
        loginPage
                .openLoginPage()
@@ -11,7 +11,7 @@ public class LoginTest extends BaseTest {
                .loginPageShouldBeOpened();
    }
 
-    @Test(description = "Checking the required field to fill in", retryAnalyzer = Retry.class)
+    @Test(description = "Checking the required field to fill in")
     public void checkMandatoryField () {
         loginPage
                 .openLoginPage()
@@ -19,14 +19,14 @@ public class LoginTest extends BaseTest {
                 .mandatoryFieldShouldBeDisplayed();
     }
 
-    @Test(description = "Checking the opening of the registration page", retryAnalyzer = Retry.class)
+    @Test(description = "Checking the opening of the registration page")
     public void checkRegistrationPage () {
         loginPage
                 .openLoginPage()
                 .registerPageShouldBeOpened();
     }
 
-    @Test(description = "Checking the opening of the password reminder page", retryAnalyzer = Retry.class)
+    @Test(description = "Checking the opening of the password reminder page")
     public void checkRemindPage () {
         loginPage
                 .openLoginPage()
@@ -34,7 +34,7 @@ public class LoginTest extends BaseTest {
 
     }
 
-    @Test(description = "Password recovery by email", retryAnalyzer = Retry.class)
+    @Test(description = "Password recovery by email")
     public void checkRemindPass () {
         loginPage
                 .openLoginPage()
