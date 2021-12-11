@@ -3,9 +3,8 @@ package tests;
 import org.testng.annotations.Test;
 import utils.Retry;
 
-
 public class SettingsTest extends BaseTest {
-    @Test(description = "Checking the opening of the settings page", retryAnalyzer = Retry.class)
+    @Test(description = "Checking the opening of the settings page")
     public void checkSettingsPage() {
         loginPage
                 .openLoginPage()
@@ -15,7 +14,7 @@ public class SettingsTest extends BaseTest {
                 .settingsPageShouldBeWorking();
     }
 
-    @Test(description = "Choosing the German language", retryAnalyzer = Retry.class)
+    @Test(description = "Choosing the German language")
     public void setLanguageDeutsch() {
         loginPage
                 .openLoginPage()
@@ -25,7 +24,8 @@ public class SettingsTest extends BaseTest {
                 .setLanguage("de")
                 .languageShouldBe("de");
     }
-    @Test(description = "Choosing the France language", retryAnalyzer = Retry.class)
+
+    @Test(description = "Choosing the France language")
     public void setLanguageFrance() {
         loginPage
                 .openLoginPage()
@@ -36,7 +36,7 @@ public class SettingsTest extends BaseTest {
                 .languageShouldBe("fr");
     }
 
-    @Test(description = "Choosing the Portugal language", retryAnalyzer = Retry.class)
+    @Test(description = "Choosing the Portugal language")
     public void setLanguagePortugal() {
         loginPage
                 .openLoginPage()
@@ -47,7 +47,7 @@ public class SettingsTest extends BaseTest {
                 .languageShouldBe("pt");
     }
 
-    @Test(description = "Changing the account password", retryAnalyzer = Retry.class)
+    @Test(description = "Changing the account password")
     public void checkSetNewPass() {
         loginPage
                 .openLoginPage()
@@ -57,15 +57,4 @@ public class SettingsTest extends BaseTest {
                 .setMenuPass()
                 .passShouldBeChanged(pass); //баг
     }
-    @Test(description = "Changing the account password inactivity timeout", retryAnalyzer = Retry.class)
-    public void checkSetInactivityTimeout() {
-        loginPage
-                .openLoginPage()
-                .login(user, pass);
-        settingsPage
-                .openSettingsByButton()
-                .setInactivityTimeout(0)
-                .inactivityTimeoutShouldBeChanged();
-    }
-
 }

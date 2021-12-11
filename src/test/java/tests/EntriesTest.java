@@ -3,14 +3,9 @@ import org.testng.annotations.Test;
 import utils.Retry;
 
 public class EntriesTest extends BaseTest {
-    String entryText = faker.RandomEntryText();
-//вынести проверки на уровень тестов
-//redme.md
-//    добавить логирование
-//    степы не добавлять
-//спрятать логин и пароль
-//            добавить проверку записи и менять текст с обычного на красивый (курсив, жирный)
-    @Test(description = "Creating a new entry", retryAnalyzer = Retry.class)
+    String entryTextFaker = faker.RandomEntryText();
+
+    @Test(description = "Creating a new entry")
     public void createNewEntry() {
         loginPage
                 .openLoginPage()
@@ -20,37 +15,36 @@ public class EntriesTest extends BaseTest {
                 .entryShouldBe("My first entry");
     }
 
-    @Test(description = "Creating a new entry and deleting", retryAnalyzer = Retry.class)
+    @Test(description = "Creating a new entry and deleting")
     public void deleteLastEntry() {
         loginPage
                 .openLoginPage()
                 .login(user, pass);
         entriesPage
-                .newEntryFaker(entryText)
+                .newEntryFakerStyle(entryTextFaker)
                 .deleteLastEntry()
                 .entriesShouldBeDeleted();
     }
 
-    @Test(description = "Creating new entries and deleting via checkbox all", retryAnalyzer = Retry.class)
+    @Test(description = "Creating new entries and deleting via checkbox all")
     public void deleteAllEntries() {
         loginPage
                 .openLoginPage()
                 .login(user, pass);
         entriesPage
-                .newEntryFaker(entryText)
-                .newEntryFaker(entryText)
-                .newEntryFaker(entryText)
+                .newEntryFaker(entryTextFaker)
+                .newEntryFaker(entryTextFaker)
+                .newEntryFaker(entryTextFaker)
                 .deleteAllEntries()
                 .entriesShouldBeDeleted();
     }
 
-    @Test(description = "Entry search", retryAnalyzer = Retry.class)
+    @Test(description = "Entry search")
     public void searchEntry () {
         loginPage.openLoginPage()
                 .login(user, pass);
         entriesPage
-                .newEntryFaker(entryText)
-                .newEntryFaker(entryText)
+                .newEntryFaker(entryTextFaker)
                 .newEntry("My third entry")
                 .searchEntryShouldBe("My")
                 .deleteAllEntries();

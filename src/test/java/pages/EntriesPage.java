@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -24,20 +25,17 @@ public class EntriesPage extends BasePage {
     public static final By BOLD_STYLE = By.cssSelector(".cke_button_icon.cke_button__bold_icon");
     public static final By NUM_STYLE = By.cssSelector(".cke_button_icon.cke_button__numberedlist_icon");
     public static final By MAXIMIZED_STYLE = By.cssSelector(".cke_button_icon.cke_button__simplemaximize_icon");
-    public static final By COLOR_STYLE = By.cssSelector(".cke_button_icon.cke_button__textcolor_icon");
-
-
 
     public EntriesPage(WebDriver driver) {
         super(driver);
     }
 
+    @Step("Creating new entry with input text")
     public EntriesPage newEntry(String entryText) {
         driver.findElement(CREATE_ENTRIES_BUTTON).click();
         Actions action = new Actions(driver);
         action.click(driver.findElement(EDITABLE_FIELD))
                 .sendKeys(entryText)
-                .sendKeys(entryText)
                 .perform();
         log.info("Creating new entry with text \"" + entryText + "\"");
         driver.findElement(SAVE_NEW_ENTRY_BUTTON).click();
@@ -45,25 +43,39 @@ public class EntriesPage extends BasePage {
         return new EntriesPage(driver);
     }
 
-    public void entryShouldBe(String entryText) {
+    @Step("Checking the creation of the entry and the entered text")
+    public EntriesPage entryShouldBe(String entryText) {
         log.info("Verifying that the entry with text \"" + entryText + "\" was created correctly");
         assertEquals("New entry has not been added", entryText,
                 driver.findElement(NEW_ENTRY).getText());
-        new EntriesPage(driver);
+       return new EntriesPage(driver);
     }
 
+    @Step("Creating new entry with input text from faker")
+    public EntriesPage newEntryFaker(String entryTextFaker) {
+        log.info("Creating new entry with text \"" + entryTextFaker + "\"");
+        driver.findElement(CREATE_ENTRIES_BUTTON).click();
+        Actions action = new Actions(driver);
+        action.click(driver.findElement(EDITABLE_FIELD))
+                .sendKeys(entryTextFaker)
+                .perform();
+        driver.findElement(SAVE_NEW_ENTRY_BUTTON).click();
+        driver.findElement(BACK_TO_ENTRIES_PAGE_BUTTON).click();
+        return new EntriesPage(driver);
+    }
 
-    public EntriesPage newEntryFaker(String entryText) {
-        log.info("Creating new entry with text \"" + entryText + "\"");
+    @Step("Creating new entry from faker with bold and num style")
+    public EntriesPage newEntryFakerStyle(String entryTextFaker) {
+        log.info("Creating new entry with text \"" + entryTextFaker + "\"");
         driver.findElement(CREATE_ENTRIES_BUTTON).click();
         Actions action = new Actions(driver);
         action.click(driver.findElement(EDITABLE_FIELD))
                 .click(driver.findElement(MAXIMIZED_STYLE))
                 .click(driver.findElement(BOLD_STYLE))
-                .sendKeys(entryText)
+                .sendKeys(entryTextFaker)
                 .click(driver.findElement(NUM_STYLE))
                 .sendKeys(Keys.ENTER)
-                .sendKeys(entryText)
+                .sendKeys(entryTextFaker)
                 .click(driver.findElement(MAXIMIZED_STYLE))
                 .perform();
         driver.findElement(SAVE_NEW_ENTRY_BUTTON).click();
@@ -71,6 +83,7 @@ public class EntriesPage extends BasePage {
         return new EntriesPage(driver);
     }
 
+    @Step("Deleting the last creating entry")
     public EntriesPage deleteLastEntry() {
         log.info("Deleting las entry");
         driver.findElement(SELECT_LAST_CHECKBOX).click();
@@ -79,15 +92,18 @@ public class EntriesPage extends BasePage {
         return new EntriesPage(driver);
     }
 
-    public void entriesShouldBeDeleted() {
+    @Step("Checking entry deletion")
+    public EntriesPage entriesShouldBeDeleted() {
         log.info("Verifying that the entries was deleted correctly");
         try {
             driver.findElement(SELECT_LAST_CHECKBOX).isDisplayed();
         } catch (NoSuchElementException ex) {
             Assert.fail("Last entry doesn't deleted");
         }
+        return new EntriesPage(driver);
     }
 
+    @Step("Deleting all creating entry")
     public EntriesPage deleteAllEntries() {
         log.info("Deleting all entries");
         driver.findElement(SELECT_ALL_CHECKBOXES).click();
@@ -96,6 +112,7 @@ public class EntriesPage extends BasePage {
         return new EntriesPage(driver);
     }
 
+    @Step("Searching for an entry by the entered text")
     public EntriesPage searchEntryShouldBe(String entryText) {
         log.info("Searching entry with text \"" + entryText + "\"");
         driver.findElement(SEARCH_FIELD).sendKeys(entryText);
@@ -103,5 +120,4 @@ public class EntriesPage extends BasePage {
         log.info("Verifying that the entry with text \"" + entryText + "\" has been found");
         return new EntriesPage(driver);
     }
-
 }
